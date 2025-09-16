@@ -98,3 +98,5 @@ Java - @ JoinColumn
 Length = 10 (Ate 10 espaços, e um limite)
 
 OFFsetDateTime - traduz o timestamp pro banco de dados
+Usuário em maiúsculo significa a classe
+e o usuário em minúsculo significa o id (campo)
