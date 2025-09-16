@@ -1,0 +1,100 @@
+API REST
+
+Variações:
+SOAP
+WEBSOCKET
+RPC
+GRAPHQL
+
+JPA TRADUTOR
+HIBERNATE
+ORM
+JPA FIRST
+DATABASE FIRST
+SPRING FRAMEWORK
+SPRINGBOOT
+LOMBOK
+SPRING WEB
+SPRING DATA JPA
+
+Passo 1
+Models - Guarda Tabelas do banco de dados
+
+Passo 2
+Repository - Classes que interagem com o Banco Diretamente
+
+2.1 - Anotações (@Repository)
+2.2 - Herdar de JpaRepository
+
+Passo 3
+Service - Classe que agrupa a logica de negocio
+
+3.1 - Anotações (Service)
+3.2 - Injeção
+
+Passo 4
+Controller - Porta de entrada da nossa API
+
+4.1 - Anotações (RestController e RequestMapping)
+4.2 - Injeção de dependência
+
+CRUD - 4 principais operações
+Create - Criar/Cadastrar
+Read - Ler
+Update - Atualizar
+Delete - Apagar
+
+Nn esquecer o @Repository para conexao
+
+Vetores - tem limite
+Lista - nao tem limite fixo
+
+BACKEND - API
+ARQUITETURA (COMO OS SISTEMAS SAO ORGANIZADOS)
+
+arquitetura em camadas
+-> cqrs
+-> arquitetura hexagonal
+
+TAREFA - fazer o listar de:
+Produto
+Requisicao (pedido)
+GET - Pegar
+POST - (Cadastrar algo)
+PUT - Colocar
+DELETE - Deletar
+Read - Ler
+
+formato.json
+endpoints
+
+pagamento so precisa do id e pedido e tirar o primeiro id 
+
+-- buscar
+-- excluir
+
+posso receber informacoes:
+-> pelo corpo
+-> pelo link (cabecalho)
+
+usar o pathvariable
+
+Passo a Passo de como fazer o CRUD: (CREATE READ UPDATE DELETE)
+1- Criar a model
+2- Criar o repository
+3- Criar o service
+4- Criar o controller
+
+Mapear Relacionamentos
+1 - N: 1 para muitos (One to Many)
+N - 1: muitos para um (Many to One)
+1 - 1: um para um (One to One)
+N - N: muitos para muitos (Many to Many)
+
+VARCHAR(255) - vem padrao se nn colocar o text
+
+SQL - REFERENCES clinica(id_clinica)
+Java - @ JoinColumn
+Length = 10 (Ate 10 espaços, e um limite)
+
+OFFsetDateTime - traduz o timestamp pro banco de dados
