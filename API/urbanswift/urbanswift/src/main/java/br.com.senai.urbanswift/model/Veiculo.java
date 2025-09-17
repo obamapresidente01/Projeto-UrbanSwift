@@ -15,7 +15,7 @@ import lombok.Setter;
 public class Veiculo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "veiculo_id", nullable = false)
+    @Column(name = "veiculo_id")
     private Integer veiculoid;
 
     @Column(name = "placa", nullable = false, unique = true, columnDefinition = "TEXT")
@@ -26,4 +26,8 @@ public class Veiculo {
 
     @Column(name = "tipo", nullable = false, columnDefinition = "TEXT")
     private String tipo;
+
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
 }
