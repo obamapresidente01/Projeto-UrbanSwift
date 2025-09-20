@@ -1,5 +1,6 @@
 package br.com.senai.urbanswift.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -44,11 +45,13 @@ public class Usuario implements UserDetails {
     private TipoUsuario tipoUsuario;
 
     @Override
+    @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(tipoUsuario.getDescricao()));
     }
 
     @Override
+    @JsonIgnore
     public String getPassword() {
         return senha;
     }
