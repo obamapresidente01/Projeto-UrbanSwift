@@ -2,6 +2,7 @@ package br.com.senai.urbanswift.service;
 
 import br.com.senai.urbanswift.model.Usuario;
 import br.com.senai.urbanswift.repository.UsuarioRepository;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,10 +11,11 @@ import java.util.List;
 public class UsuarioService {
 
     private final UsuarioRepository usuarioRepository;
+    private final PasswordEncoder passwordEncoder;
 
-    public UsuarioService (UsuarioRepository repo) {
+    public UsuarioService (UsuarioRepository repo, PasswordEncoder passwordEncoder) {
         usuarioRepository = repo;
-
+        this.passwordEncoder = passwordEncoder;
     }
 
     public List<Usuario> ListarTodos() {
@@ -21,6 +23,13 @@ public class UsuarioService {
     }
 
     public Usuario cadastrarUsuario(Usuario user) {
+
+        // Pega a senha em texto plano e gera o hash
+        String senhaCriptografada = passwordEncoder.encode(user.getSenha());
+
+        // Substitui a senha original pelo hash gerado
+        user.setSenha(senhaCriptografada);
+
         return usuarioRepository.save(user);
     }
 
